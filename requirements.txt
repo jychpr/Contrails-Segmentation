@@ -1,0 +1,9 @@
+jupyterlab
+numpy
+pandas
+matplotlib
+seaborn
+torch
+torchvision
+torchsummary
+tqdm
