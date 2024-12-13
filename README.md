@@ -21,21 +21,72 @@ If you planning to run it on Kaggle, you can load the dataset by joining the com
 
 And for both, keep in mind that we use the baseline code from this code, Getting Started | EDA -> Model -> Train -> Submit (https://www.kaggle.com/code/mnokno/getting-started-eda-model-train-submit). For running our code, you can reference from this one.
 
+We also provided some weights from our experiments that can be accessed here:
+https://drive.google.com/drive/folders/1HIyXMjQGhtnN7UChZNa7nx6lAchNZGW4?usp=sharing
+
+Keep these weights in a directory and later this path can be use for inference only.
+
 ## Usage
-First, clone this repository.
+Here are the steps on how to use this project locally.
+1. First, clone this repository.
+```
+git clone git@github.com:jychpr/Contrails-Segmentation.git
+```
+And move to the directory
+```
+cd Contrails-Segmentation
+```
+2. Create virtual environment. Here we use conda to create environment
+```
+conda create -n conseg python=3.12
+```
+And activate it
+```
+conda activate conseg
+```
+3. Then install the requirements using this command.
+```
+pip install -r requirements.txt
+```
+4. We will use jupyter lab to accress the notebook. After running the code below, just copy the link or URL for the interface
+```
+jupyter lab --no-browser
+```
+5. Go to the notebooks directory and choose one of the notebook to try the methods we try.
+
+6. Then, search for the directory variable initialization and change to the dataset directory which will be similar to the current being set in the notebook files .ipynb
+
+7. Changing all the directories at the code complete, then just run all the cells until the end of the script.
+
+But for the EfficientNetB7UNet, there are two notebook, one for training and inference. If you want to try to run, you need to run the training first and stop the session and kill the kernel to reset the VRAM usage, and run the inference, but check the weights that has been produced by training.
+
+For Inference run only.
+
+1. Run steps 1-6 earlier
+
+2. Find the model path in "Train" section, and change the model path with the weights path that is downloaded beforehand.
+
+3. Continue steps 7 from earlier
 
 
-Then install the requirements using this command.
 
-
-After that still in the main directory, run jupyter lab using this command.
-
-
-Choose one of the notebook in the notebook_trials directory.
-
-Then find the dataset initialization, change the directory path.
 
 ## Experimentation and Hyperparameters
+We have two setups.
+1. By running the script on local (if you have the computing resources).
+
+Run on PC with specs: GPU VRAM 24GB, Memory RAM 128GB
+
+2. By running the script on kaggle.
+
+Run with specs: GPU P100 in the settings
+
+Inference run usage:
+- Baseline UNet: 3-8GB VRAM
+- CBAM+UNet: 10-16GB VRAM
+- EfficientNetB7+Unet: 24GB VRAM (GPU with 24GB VRAM can run this inference)
+
+
 We use uniform hyperparameters for all of our code which is the same with the reference baseline code, such as:
 - Epoch: 11
 - Optimizer: Adam
