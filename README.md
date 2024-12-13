@@ -5,10 +5,21 @@ Contrails (Condensation Trails), formed by ice crystals in aircraft exhaust, tra
 
 So, in this task we are doing Contrails Segmentation using various method. Our approach is about comparing one method or architecture with another and trying to find the best result from it.
 
+Our goal is to find better methods or architectures compared to the baseline we used.
+
 
 ## Pre-requisite
-There are some pre-requisite need to be done. First, download the dataset from (https://www.kaggle.com/competitions/google-research-identify-contrails-reduce-global-warming). The dataset is around 450GB in zipped format. Make sure to have some space for downloading and extracting the dataset.
-Extract the dataset and don't change the name. Keep in mind the dataset path.
+There are some pre-requisite need to be done. First, we will use this dataset from Kaggle competition Google Research - Identify Contrails to Reduce Global Warming (https://www.kaggle.com/competitions/google-research-identify-contrails-reduce-global-warming). The dataset is around 450GB in zipped format.
+
+There are two way to run the script.
+1. By running the script on local (if you have the computing resources).
+2. By running the script on kaggle.
+
+If you are planning to run it locally, make sure to have some space for downloading and extracting the dataset. If running locally, extract the dataset and don't change the name. Keep in mind the dataset path.
+
+If you planning to run it on Kaggle, you can load the dataset by joining the competition first and then load the dataset into the notebook.
+
+And for both, keep in mind that we use the baseline code from this code, Getting Started | EDA -> Model -> Train -> Submit (https://www.kaggle.com/code/mnokno/getting-started-eda-model-train-submit). For running our code, you can reference from this one.
 
 ## Usage
 First, clone this repository.
@@ -24,9 +35,29 @@ Choose one of the notebook in the notebook_trials directory.
 
 Then find the dataset initialization, change the directory path.
 
-## Hyperparameters
-The hyperparameters settings are on each python notebook file.
-The hyperparameters used such as Optimizer, etc.
+## Experimentation and Hyperparameters
+We use uniform hyperparameters for all of our code which is the same with the reference baseline code, such as:
+- Epoch: 11
+- Optimizer: Adam
+- Optimizer Learning Rate: 0.01
+
+And for experimentation, we implement some methods and loss function as follows.
+
+Methods:
+1. Baseline UNet
+2. EfficientNetB7 + UNet
+3. CBAM + UNet
+
+Metrics, Parameters, Hyperparameters tried:
+1. BCE (Binary Cross-Entropy) only
+2. BCE + Dice Loss Function
+
+Here is the result of the data exploration.
+
+![Sample Image](assets/distribution1.png)
+![Sample Image](assets/distribution2.png)
+
+
 
 ## Experiment Results
 Here is the comparison between Dice Score result
