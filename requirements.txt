@@ -1,9 +1,9 @@
 jupyterlab
-numpy
-pandas
-matplotlib
-seaborn
-torch
-torchvision
-torchsummary
-tqdm
+numpy 1.26.4
+pandas 2.2.3
+matplotlib 3.7.5
+seaborn 0.12.2
+torch 2.4.0
+torchvision 0.19.0
+torchsummary 1.5.1
+tqdm 4.66.4
